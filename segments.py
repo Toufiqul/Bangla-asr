@@ -13,6 +13,9 @@ def splice_audio(input_wav, output_folder, segments_df):
         output_file = f"{output_folder}/segment_{segment_id}.wav"  # Create file name with segment ID
         segment.export(output_file, format="wav")  #name of output file will be "segment_{start_time}_{end_time}.wav"
 
+        output_text_file = f"{output_folder}/segment_{segment_id}.txt"  # Text file name
+        with open(output_text_file, 'w') as text_file:
+            text_file.write(row['Annotation Text'])        
 
 if __name__ == "__main__":
     input_wav = "test/debate_2.wav"
